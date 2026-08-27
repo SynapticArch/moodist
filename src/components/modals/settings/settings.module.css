@@ -1,0 +1,10 @@
+.group {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: var(--font-xsm);
+  font-weight: 500;
+}

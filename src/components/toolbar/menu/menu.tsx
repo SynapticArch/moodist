@@ -1,6 +1,6 @@
 import { useState, useMemo, useCallback } from 'react';
 import { IoMenu, IoClose } from 'react-icons/io5/index';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { DropdownMenu } from 'radix-ui';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { AnimatePresence, motion } from 'motion/react';
 
@@ -9,6 +9,7 @@ import {
   ShareItem,
   DonateItem,
   SourceItem,
+  SettingsItem,
   PresetsItem,
   ShortcutsItem,
   SleepTimerItem,
@@ -26,12 +27,12 @@ import { ShareLinkModal } from '@/components/modals/share-link';
 import { PresetsModal } from '@/components/modals/presets';
 import { ShortcutsModal } from '@/components/modals/shortcuts';
 import { SleepTimerModal } from '@/components/modals/sleep-timer';
+import { SettingsModal } from '@/components/modals/settings';
 import { BreathingExerciseModal } from '@/components/modals/breathing';
 import { BinauralModal } from '@/components/modals/binaural';
 import { IsochronicModal } from '@/components/modals/isochronic';
 import { LofiModal } from '@/components/modals/lofi';
 import { Pomodoro, Notepad, Todo, Countdown } from '@/components/toolbox';
-import { Slider } from '@/components/slider';
 
 import { fade, mix, slideY } from '@/lib/motion';
 import { useSoundStore } from '@/stores/sound';
@@ -44,8 +45,6 @@ export function Menu() {
   const [isOpen, setIsOpen] = useState(false);
 
   const noSelected = useSoundStore(state => state.noSelected());
-  const globalVolume = useSoundStore(state => state.globalVolume);
-  const setGlobalVolume = useSoundStore(state => state.setGlobalVolume);
 
   const initial = useMemo(
     () => ({
@@ -57,6 +56,7 @@ export function Menu() {
       notepad: false,
       pomodoro: false,
       presets: false,
+      settings: false,
       shareLink: false,
       shortcuts: false,
       sleepTimer: false,
@@ -91,6 +91,7 @@ export function Menu() {
   useHotkeys('shift+p', () => open('pomodoro'));
   useHotkeys('shift+t', () => open('todo'));
   useHotkeys('shift+c', () => open('countdown'));
+  useHotkeys('shift+g', () => open('settings'));
   useHotkeys('shift+s', () => open('shareLink'), { enabled: !noSelected });
   useHotkeys('shift+alt+t', () => open('sleepTimer'));
 
@@ -101,7 +102,11 @@ export function Menu() {
   return (
     <>
       <div className={styles.wrapper}>
-        <DropdownMenu.Root open={isOpen} onOpenChange={o => setIsOpen(o)}>
+        <DropdownMenu.Root
+          modal={false}
+          open={isOpen}
+          onOpenChange={o => setIsOpen(o)}
+        >
           <DropdownMenu.Trigger asChild>
             <button aria-label="Menu" className={styles.menuButton}>
               {isOpen ? <IoClose /> : <IoMenu />}
@@ -143,19 +148,9 @@ export function Menu() {
                     <LofiItem open={() => open('lofi')} />
 
                     <Divider />
-                    <ShortcutsItem open={() => open('shortcuts')} />
+                    <SettingsItem open={() => open('settings')} />
                     <Divider />
-
-                    <div className={styles.globalVolume}>
-                      <label htmlFor="global-volume">Global Volume</label>
-                      <Slider
-                        max={100}
-                        min={0}
-                        value={globalVolume * 100}
-                        onChange={value => setGlobalVolume(value / 100)}
-                      />
-                    </div>
-
+                    <ShortcutsItem open={() => open('shortcuts')} />
                     <Divider />
                     <DonateItem />
                     <SourceItem />
@@ -179,6 +174,7 @@ export function Menu() {
         show={modals.shortcuts}
         onClose={() => close('shortcuts')}
       />
+      <SettingsModal show={modals.settings} onClose={() => close('settings')} />
       <Pomodoro
         open={() => open('pomodoro')}
         show={modals.pomodoro}

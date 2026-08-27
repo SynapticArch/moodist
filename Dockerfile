@@ -1,12 +1,33 @@
-FROM docker.io/node:20-alpine3.18 AS build
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
+FROM docker.io/node:24-alpine AS build
 
-FROM docker.io/nginx:alpine AS runtime
-COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /app/dist /usr/share/nginx/html
+WORKDIR /app
+
+# Install pnpm
+RUN npm install -g pnpm@latest-11
+
+# Copy dependency files
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile
+
+# Copy rest of the project
+COPY . .
+
+# Build the app
+RUN pnpm run build
+
+FROM docker.io/caddy:latest
+
+LABEL org.opencontainers.image.title="Moodist" \
+      org.opencontainers.image.description="Ambient sounds for focus and calm" \
+      org.opencontainers.image.source="https://github.com/remvze/moodist" \
+      org.opencontainers.image.url="https://moodist.mvze.net/" \
+      org.opencontainers.image.documentation="https://github.com/remvze/moodist" \
+      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.vendor="remvze"
+
+COPY ./Caddyfile /etc/caddy/Caddyfile
+COPY --from=build /app/dist /var/www/html
 
 EXPOSE 8080

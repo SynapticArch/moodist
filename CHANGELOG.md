@@ -2,6 +2,93 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.1](https://github.com/remvze/moodist/compare/v2.6.0...v2.6.1) (2026-07-12)
+
+
+### 🚚 Chores
+
+* add features to the README ([5e89b0a](https://github.com/remvze/moodist/commit/5e89b0a46c16fc1c826d28429602fbecdd578a8b))
+* **deps:** migrate [@radix-ui](https://github.com/radix-ui) components to the new radix-ui namespace ([de81328](https://github.com/remvze/moodist/commit/de81328251d42eb068f1da66ab749a43d248e355))
+* **deps:** migrate husky to v9 ([71658ed](https://github.com/remvze/moodist/commit/71658ed9358c5d693b8ddd037ed23e00e55c7e3c))
+* **deps:** remove unused dependencies ([89a3908](https://github.com/remvze/moodist/commit/89a39084c3158b360e616d84075b0b209b1657de))
+* **deps:** upgrade astro 6 ([c5601eb](https://github.com/remvze/moodist/commit/c5601ebfd201a078051c921912d2ac9b068afba0))
+* **deps:** upgrade commit lint and commitizen ([497652c](https://github.com/remvze/moodist/commit/497652c160144e471d089eca8bcfd36a01d11cb8))
+* **deps:** upgrade postcss ([021e5de](https://github.com/remvze/moodist/commit/021e5de152fc8d2fbd809425732335cecdfcf650))
+* **deps:** upgrade react to v19 ([5432f8d](https://github.com/remvze/moodist/commit/5432f8ddadf3ec8fd6de040a188ff5ab7cd68d12))
+* **deps:** upgrade uuid to v14 ([fd22710](https://github.com/remvze/moodist/commit/fd22710e1f4699517382db4a571ed4e9150bd268))
+* migrate away from npm configuration ([dedf338](https://github.com/remvze/moodist/commit/dedf3388cd0beefa1c70d3cfad9d8f91fb768e7a))
+* **ts:** remove redudant types ([e0d9c87](https://github.com/remvze/moodist/commit/e0d9c8725b53e6d1b6f7c38ffef3d33aa0025b80))
+
+
+### ♻️ Code Refactoring
+
+* fix linter problems ([315ef76](https://github.com/remvze/moodist/commit/315ef768d6e3e4344c8b441b450daf9ed9a4e870))
+* fix sleep-timer type issue ([63e464c](https://github.com/remvze/moodist/commit/63e464cc2b864f5176b91ee1257246fc6b4b2b48))
+* remove extra component ([60af5d9](https://github.com/remvze/moodist/commit/60af5d9c2d9b9377bc5dee166e57e781296aa6d5))
+
+
+### 🐛 Bug Fixes
+
+* reinstall ([0fb4b28](https://github.com/remvze/moodist/commit/0fb4b28fa3fba88222c50267ca75ecf5219969b1))
+
+
+### ✨ Features
+
+* add settings modal ([1c3a0dc](https://github.com/remvze/moodist/commit/1c3a0dceed2ac93a94e5cd96882366eb02a9e185))
+* add standard modal elements ([e0d5fb9](https://github.com/remvze/moodist/commit/e0d5fb9d18629ef7179b50e70a233591187bfbe4))
+* animate the binary text ([8b7c2b3](https://github.com/remvze/moodist/commit/8b7c2b300531b2951e4bfee51edcf978ac8b73e4))
+* migrate to Biome ([5916088](https://github.com/remvze/moodist/commit/5916088a4a0945aae1cfc881dc0b4044fcc43be3))
+* smoother animation ([ffc1f0b](https://github.com/remvze/moodist/commit/ffc1f0b10e9f3a842796873322437e1fb58206fa))
+
+## [2.6.0](https://github.com/remvze/moodist/compare/v2.5.2...v2.6.0) (2026-05-02)
+
+
+### 🚚 Chores
+
+* update the readme ([be27a08](https://github.com/remvze/moodist/commit/be27a08092575131d93a0898a71dc1094151c573))
+
+
+### ✨ Features
+
+* add fading effect ([ad32975](https://github.com/remvze/moodist/commit/ad3297547d5781e8c281820e3d3ca6307eee325c))
+
+
+### ♻️ Code Refactoring
+
+* flatten and inline stores ([0e49a2c](https://github.com/remvze/moodist/commit/0e49a2c80fe11bfd938cf93aeceea440e19f6668))
+
+### [2.5.2](https://github.com/remvze/moodist/compare/v2.5.1...v2.5.2) (2026-04-27)
+
+
+### 🚚 Chores
+
+* add workbox-window to the devdeps ([4070f6c](https://github.com/remvze/moodist/commit/4070f6c1555e90acb76a0ba566e3b5a44d4c7217))
+
+### [2.5.1](https://github.com/remvze/moodist/compare/v2.5.0...v2.5.1) (2026-04-27)
+
+
+### 🐛 Bug Fixes
+
+* pnpm installation ([6af5d8c](https://github.com/remvze/moodist/commit/6af5d8c3b728d20a9815781ff27fe4bd9f66890d))
+
+## [2.5.0](https://github.com/remvze/moodist/compare/v2.4.1...v2.5.0) (2026-04-27)
+
+
+### 🐛 Bug Fixes
+
+* minor ([0f7a1c7](https://github.com/remvze/moodist/commit/0f7a1c771cc097bf340c8a7969b2f4dc65fedc00))
+
+### [2.4.1](https://github.com/remvze/moodist/compare/v2.4.0...v2.4.1) (2026-04-27)
+
+
+### 🚚 Chores
+
+* change npm to pnpm ([8fb0bb9](https://github.com/remvze/moodist/commit/8fb0bb9f20fd0f7e6b8b59871304592b39fe7927))
+* remove Storybook ([cc97dc3](https://github.com/remvze/moodist/commit/cc97dc301e745ef70b68b6ce853f452ad4686589))
+* remove Vitest ([874819a](https://github.com/remvze/moodist/commit/874819a638ed6cb98b3bd20c0ae301dba811de54))
+* replace nginx with Caddy ([6a8448a](https://github.com/remvze/moodist/commit/6a8448a64b2dbd45140e10bd19ac5a754c578000))
+* switch to pnpm ([8785215](https://github.com/remvze/moodist/commit/8785215350443eea1763329740a9cc04bc6a4386))
+
 ## [2.4.0](https://github.com/remvze/moodist/compare/v2.3.0...v2.4.0) (2025-11-25)
 
 
